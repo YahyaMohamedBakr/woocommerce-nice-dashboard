@@ -1,0 +1,43 @@
+.nice_dashboard {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+}
+
+.nice_dashboard div {
+	background: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 15px 20px;
+	text-align: center;
+	width: 150px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nice_dashboard div:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nice_dashboard div a {
+	text-decoration: none;
+	color: #333;
+	font-size: 16px;
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.nice_dashboard div a i {
+	font-size: 24px;
+	color: #0073aa;
+	transition: color 0.3s ease;
+}
+
+.nice_dashboard div a:hover i {
+	color: #005177;
+}
