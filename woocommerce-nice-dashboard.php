@@ -33,8 +33,9 @@ add_action( 'wp_enqueue_scripts', 'woo_nice_dashboard_enqueue_styles' );
 function woo_nice_dashboard_enqueue_fontawesome() {
     // Check if Font Awesome is already enqueued by the theme or another plugin.
     if ( ! wp_style_is( 'font-awesome', 'enqueued' ) ) {
-        wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1/css/all.min.css', [], '4.1' );
-    }
+        wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css', [], '6.7.1' );
+    }   wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', [], '6.7.1' );
+
 }
 add_action( 'wp_enqueue_scripts', 'woo_nice_dashboard_enqueue_fontawesome' );
 
@@ -58,5 +59,7 @@ add_action( 'admin_menu', 'woo_nice_dashboard_add_admin_menu' );
 function woo_nice_dashboard_register_settings() {
     register_setting( 'woo_nice_dashboard_settings', 'woo_nice_dashboard_icons' );
     register_setting( 'woo_nice_dashboard_settings', 'woo_nice_dashboard_colors' );
+    register_setting( 'woo_nice_dashboard_settings', 'woo_nice_dashboard_colors_hover' );
+
 }
 add_action( 'admin_init', 'woo_nice_dashboard_register_settings' );

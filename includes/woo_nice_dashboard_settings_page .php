@@ -11,6 +11,10 @@ function woo_nice_dashboard_settings_page() {
         'customer-logout' => 'fas fa-sign-out-alt',
     ] );
     $colors = get_option( 'woo_nice_dashboard_colors', '#0073aa' );
+    $colors_hover = get_option( 'woo_nice_dashboard_colors_hover', '#0073aa' );
+
+
+    
 
     ?>
     <div class="wrap">
@@ -47,6 +51,14 @@ function woo_nice_dashboard_settings_page() {
                     </th>
                     <td>
                         <input type="color" id="woo_nice_dashboard_colors" name="woo_nice_dashboard_colors" value="<?php echo esc_attr( $colors ); ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="woo_nice_dashboard_colors_hover"><?php esc_html_e( 'Icon Hover Color ', 'woocommerce-nice-dashboard' ); ?></label>
+                    </th>
+                    <td>
+                        <input type="color" id="woo_nice_dashboard_colors_hover" name="woo_nice_dashboard_colors_hover" value="<?php echo esc_attr( $colors_hover ); ?>">
                     </td>
                 </tr>
             </table>
