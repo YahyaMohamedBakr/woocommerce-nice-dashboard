@@ -2,19 +2,17 @@
 function woo_nice_dashboard_settings_page() {
     // Get saved options.
     $icons = get_option( 'woo_nice_dashboard_icons', [
-        'dashboard'       => 'fas fa-home',
-        'orders'          => 'fas fa-shopping-bag',
-        'downloads'       => 'fas fa-download',
-        'edit-address'    => 'fas fa-map-marker-alt',
-        'payment-methods' => 'fas fa-credit-card',
-        'edit-account'    => 'fas fa-user-edit',
-        'customer-logout' => 'fas fa-sign-out-alt',
+        'dashboard'       => ['class' => 'fas fa-home', 'unicode' => '\\f015'],
+        'orders'          => ['class' => 'fas fa-shopping-bag', 'unicode' => '\\f290'],
+        'downloads'       => ['class' => 'fas fa-download', 'unicode' => '\\f019'],
+        'edit-address'    => ['class' => 'fas fa-map-marker-alt', 'unicode' => '\\f3c5'],
+        'payment-methods' => ['class' => 'fas fa-credit-card', 'unicode' => '\\f09d'],
+        'edit-account'    => ['class' => 'fas fa-user-edit', 'unicode' => '\\f4ff'],
+        'customer-logout' => ['class' => 'fas fa-sign-out-alt', 'unicode' => '\\f2f5'],
     ] );
+
     $colors = get_option( 'woo_nice_dashboard_colors', '#0073aa' );
     $colors_hover = get_option( 'woo_nice_dashboard_colors_hover', '#0073aa' );
-
-
-    
 
     ?>
     <div class="wrap">
@@ -25,19 +23,28 @@ function woo_nice_dashboard_settings_page() {
 
             <h2><?php esc_html_e( 'Dashboard Icons', 'woocommerce-nice-dashboard' ); ?></h2>
             <table class="form-table">
-                <?php foreach ( $icons as $key => $icon ) : ?>
+                <?php foreach ( $icons as $key => $icon_data ) : ?>
                     <tr>
                         <th scope="row">
-                            <label for="woo_nice_dashboard_icons[<?php echo esc_attr( $key ); ?>]">
+                            <label for="woo_nice_dashboard_icons[<?php echo esc_attr( $key ); ?>][class]">
                                 <?php echo esc_html( ucfirst( str_replace( '-', ' ', $key ) ) ); ?>
                             </label>
                         </th>
                         <td>
-                            <input type="text" id="woo_nice_dashboard_icons[<?php echo esc_attr( $key ); ?>]" 
-                                name="woo_nice_dashboard_icons[<?php echo esc_attr( $key ); ?>]" 
-                                value="<?php echo esc_attr( $icon ); ?>" 
-                                class="regular-text" />
+                            <input type="text" 
+                                   id="woo_nice_dashboard_icons[<?php echo esc_attr( $key ); ?>][class]" 
+                                   name="woo_nice_dashboard_icons[<?php echo esc_attr( $key ); ?>][class]" 
+                                   value="<?php echo esc_attr( $icon_data['class'] ?? '' ); ?>" 
+                                   class="regular-text" />
                             <p class="description"><?php esc_html_e( 'Enter FontAwesome class for the icon.', 'woocommerce-nice-dashboard' ); ?></p>
+                        </td>
+                        <td>
+                            <input type="text" 
+                                   id="woo_nice_dashboard_icons[<?php echo esc_attr( $key ); ?>][unicode]" 
+                                   name="woo_nice_dashboard_icons[<?php echo esc_attr( $key ); ?>][unicode]" 
+                                   value="<?php echo esc_attr( $icon_data['unicode'] ?? '' ); ?>" 
+                                   class="regular-text" />
+                            <p class="description"><?php esc_html_e( 'Enter Unicode for the icon.', 'woocommerce-nice-dashboard' ); ?></p>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -68,3 +75,4 @@ function woo_nice_dashboard_settings_page() {
     </div>
     <?php
 }
+
